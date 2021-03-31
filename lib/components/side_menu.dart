@@ -6,11 +6,14 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: BoxConstraints(
+        maxWidth: 130
+      ),
       height: double.infinity,
       color: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
               NavItem(

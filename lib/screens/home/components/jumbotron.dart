@@ -17,6 +17,14 @@ class Jumbotron extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
+          if (isDesktop(context) || isTab(context))
+            Expanded(
+                child: Image.asset(
+                  'assets/images/main.png',
+                  height: size.height * 0.7,
+                )
+            ),
+          SizedBox(width: 20,),
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(right: !isMobile(context) ? 40:0),
@@ -61,11 +69,13 @@ class Jumbotron extends StatelessWidget {
                     ),
                   ),
 
-                  Text(
-                    'Online Today!',
-                    style: TextStyle(
-                      fontSize: isDesktop(context) ? 64 : 32,
-                      fontWeight: FontWeight.w800
+                  FittedBox(
+                    child: Text(
+                      'Online Today!',
+                      style: TextStyle(
+                        fontSize: 64,
+                        fontWeight: FontWeight.w800
+                      ),
                     ),
                   ),
 
@@ -105,13 +115,7 @@ class Jumbotron extends StatelessWidget {
             )
           ),
 
-          if (isDesktop(context) || isTab(context))
-            Expanded(
-              child: Image.asset(
-                'assets/images/main.png',
-                height: size.height * 0.7,
-              )
-            )
+
         ],
       )
     );
